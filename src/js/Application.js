@@ -19,3 +19,22 @@ export default class Application extends EventEmitter {
 
   addBananas() {}
 }
+const emojis = ["🐒", "🐒", "🐒"];
+
+function addBananas(emojis) {
+  return emojis.map((emoji) => `${emoji}🍌`);
+}
+
+function setEmojis(emojis) {
+  const wrapperDiv = document.getElementById("emojis");
+  wrapperDiv.innerHTML = ""; // Clear the content of the wrapper div
+
+  emojis.forEach((emoji) => {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = emoji;
+    wrapperDiv.appendChild(paragraph);
+  });
+}
+
+const emojisWithBananas = addBananas(emojis);
+setEmojis(emojisWithBananas);
